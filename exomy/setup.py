@@ -27,6 +27,7 @@ setup(
             'motor_node = exomy.motor_node:main',
             'gamepad_parser_node = exomy.gamepad_parser_node:main',
             'robot_node = exomy.robot_node:main',
+            'robot_node_modified = exomy.robot_node_modified:main',
         ],
     },
 )
