@@ -9,28 +9,15 @@ def generate_launch_description():
     # Get the path to the exomy.yaml parameter file
     exomy_config = os.path.join(get_package_share_directory('exomy'),'exomy.yaml')
 
-    robot = Node(
+  robot = Node(
         package='exomy',
-        executable='robot_node',
+        executable='robot_node_modified',
         name='robot_node',
         namespace=namespace_,
         parameters=[exomy_config],
         output='screen'
     )
-    joy = Node(
-        package='joy',
-        executable='joy_node',
-        name='joy_node',
-        namespace=namespace_,
-        output='screen'
-    )
-    gamepad = Node(
-        package='exomy',
-        executable='gamepad_parser_node',
-        name='gamepad_parser_node',
-        namespace=namespace_,
-        output='screen'
-    )
+
     motors = Node(
         package='exomy',
         executable='motor_node',
@@ -39,7 +26,6 @@ def generate_launch_description():
         parameters=[exomy_config],
         output='screen'
     )
-
     return LaunchDescription([
         robot,
         gamepad,
